@@ -25,3 +25,5 @@ class Checking():
         check_info = check.get(field_name)
         assert check_info == expected_value
         print("Значение поля " + field_name + " верное!")
+
+

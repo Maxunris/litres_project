@@ -23,4 +23,6 @@ def test_invalid_password():
     Checking.check_status_code(result_post, 401)
     Checking.check_json_token(result_post, ['status', 'error'])
     print("gehsadasf "+result_post.json()['error']['type'])
-    Checking.check_json_value(result_post, 'error', "Unauthorized")
+    Checking.check_json_value(result_post, 'type', "Unauthorized")
+    Checking.check_json_value(result_post, 'title ', "Incorrect user data")
+

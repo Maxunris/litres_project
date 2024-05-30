@@ -9,11 +9,14 @@ def test_successful_login():
     Checking.check_status_code(result_post, 200)
     # token = json.loads(result_post.text)
     # print(list(token))
-    Checking.check_json_toket(result_post, ['status', 'error', 'payload'])
+    Checking.check_json_token(result_post, ['status', 'error', 'payload'])
     Checking.check_json_value(result_post, 'error', None)
 
-"""Неверный логин"""
-def test_invalid_login():
-    pass
+"""Неверный пароль"""
+
 def test_invalid_password():
-    pass
+    result_post = LitresAPI.post_invalid_password()
+    Checking.check_status_code(result_post, 401)
+    Checking.check_json_token(result_post, ['status', 'error'])
+    assert result_post.json()['error']['type'] == "Unauthorized"
+    assert result_post.json()['error']['title'] == "Incorrect user data"

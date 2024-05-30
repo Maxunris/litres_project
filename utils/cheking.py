@@ -12,7 +12,7 @@ class Checking():
     """Метод для проверки наличия обязательных полей в ответе запроса"""
 
     @staticmethod
-    def check_json_toket(result, expected_value):
+    def check_json_token(result, expected_value):
         token = json.loads(result.text)
         assert list(token) == expected_value
         print("Обязательные поля - корректные")

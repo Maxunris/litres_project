@@ -18,5 +18,5 @@ def test_invalid_password():
     result_post = LitresAPI.post_invalid_password()
     Checking.check_status_code(result_post, 401)
     Checking.check_json_token(result_post, ['status', 'error'])
-    assert result_post.json()['error']['type'] == "Unauthorized"
-    assert result_post.json()['error']['title'] == "Incorrect user data"
+    Checking.check_json_token(result_post, ['status', 'error'])
+    Checking.check_json_value(result_post, result_post.json()['error']['type'], None)

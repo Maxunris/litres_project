@@ -32,7 +32,7 @@ class LitresAPI():
         }
         endpoint = "foundation/api/auth/login"
         post_url = base_url + endpoint
-        print("постюрл"+post_url)
+        print(post_url)
         result_post = HttpMethods.post(post_url, json_correct_data)
-        print("результ пост"+result_post.text)
+        print(+result_post.text)
         return result_post

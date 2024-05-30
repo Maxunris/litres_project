@@ -6,7 +6,7 @@ base_url = 'https://api.litres.ru/'
 class LitresAPI():
     """Метод для входа с корректными данными"""
     @staticmethod
-    def post_login():
+    def post_successful_login():
         load_dotenv()
         CORRECT_MAIL = os.getenv("CORRECT_MAIL")
         CORRECT_PASSWORD = os.getenv("CORRECT_PASSWORD")

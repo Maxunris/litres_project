@@ -3,8 +3,11 @@ from utils.http_methods import HttpMethods
 import os
 
 base_url = 'https://api.litres.ru/'
+
+
 class LitresAPI():
     """Метод для входа с корректными данными"""
+
     @staticmethod
     def post_successful_login():
         load_dotenv()
@@ -36,3 +39,4 @@ class LitresAPI():
         result_post = HttpMethods.post(post_url, json_correct_data)
         print(result_post.text)
         return result_post
+

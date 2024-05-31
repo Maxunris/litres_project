@@ -7,6 +7,7 @@ from litres_project.schema.invalid_password_schema import invalid_login
 """Успешный вход"""
 
 @allure.title("successful_login")
+@allure.tag('positive test')
 def test_successful_login():
     result_post = LitresAPI.post_successful_login()
     with allure.step('Status code=200'):
@@ -23,6 +24,7 @@ def test_successful_login():
 """Неверный пароль"""
 
 @allure.title("invalid password")
+@allure.tag('negative test')
 def test_invalid_password():
     result_post = LitresAPI.post_invalid_password()
     with allure.step('Status code=401'):

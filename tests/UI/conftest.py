@@ -1,11 +1,10 @@
-# conftest.py
 import pytest
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="session", autouse=True)
 def base_url():
     return "https://www.litres.ru/"
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="session", autouse=True)
 def browser_context_args(browser_context_args):
     return {
         **browser_context_args,
@@ -15,6 +14,6 @@ def browser_context_args(browser_context_args):
         }
     }
 
-@pytest.mark.only_browser("chromium")
-def test_visit_example(page, base_url):
-    page.goto(base_url)
+# @pytest.fixture(scope="session")
+# def test_visit_example(page, base_url):
+#     page.goto(base_url)

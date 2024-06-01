@@ -40,3 +40,25 @@ class LitresAPI():
         print(result_post.text)
         return result_post
 
+    @staticmethod
+    def put_add_to_card():
+        load_dotenv()
+        json_correct_data = {"art_ids":[66665968]}
+
+        endpoint = "foundation/api/cart/arts/add"
+        put_url = base_url + endpoint
+        print(put_url)
+        result_put = HttpMethods.put(put_url, json_correct_data)
+        print(result_put.text)
+        return result_put
+
+    @staticmethod
+    def put_delete_from_card():
+        load_dotenv()
+        json_correct_data = {"art_ids":[66665968]}
+        endpoint = "foundation/api/cart/arts/remove"
+        put_url = base_url + endpoint
+        print(put_url)
+        result_put = HttpMethods.put(put_url, json_correct_data)
+        print(result_put.text)
+        return result_put

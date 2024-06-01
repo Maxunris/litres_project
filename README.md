@@ -1,5 +1,6 @@
 <h1> Тестирование цифрового сервиса электронных и аудиокниг  <a target="_blank" href="https://www.litres.ru/">litres.ru</a></h1>
 
+![This is an image](images/main_page.jpg)
 
 #### Список проверок, реализованных в автотестах c помощью playwright :
 * ✅ Проверка успешного входа и выхода из аккаунта

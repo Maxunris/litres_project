@@ -62,3 +62,14 @@ class LitresAPI():
         result_put = HttpMethods.put(put_url, json_correct_data)
         print(result_put.text)
         return result_put
+
+    @staticmethod
+    def get_go_to_audiobooks_page():
+        load_dotenv()
+        endpoint = "foundation/api/dashboards/dashboard/audiobooks/"
+        get_url = base_url + endpoint
+        print(get_url)
+        result_get = HttpMethods.get(get_url)
+        print(result_get.text)
+        return result_get
+

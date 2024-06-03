@@ -1,15 +1,14 @@
 from jsonschema import validate
 import allure
-from utils.api import LitresAPI
-from utils.cheking import Checking
+from litres_project.utils.api import LitresAPI
+from litres_project.utils.cheking import Checking
 from litres_project.schema.successful_login_schema import login
 from litres_project.schema.invalid_password_schema import invalid_login
-"""Успешный вход"""
 
 @allure.title("successful_login")
 @allure.tag('positive test')
-def test_successful_login():
-    result_post = LitresAPI.post_successful_login()
+def test_successful_login(base_api_url):
+    result_post = LitresAPI.post_successful_login(base_api_url)
     with allure.step('Status code=200'):
         Checking.check_status_code(result_post, 200)
     # token = json.loads(result_post.text)
@@ -21,12 +20,11 @@ def test_successful_login():
     with allure.step('Schema is validate'):
         validate(result_post.json(), login)
 
-"""Неверный пароль"""
 
 @allure.title("invalid password")
 @allure.tag('negative test')
-def test_invalid_password():
-    result_post = LitresAPI.post_invalid_password()
+def test_invalid_password(base_api_url):
+    result_post = LitresAPI.post_invalid_password(base_api_url)
     with allure.step('Status code=401'):
         Checking.check_status_code(result_post, 401)
     with allure.step('The presence of required fields'):

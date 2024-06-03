@@ -18,7 +18,6 @@ def test_favorites(page: Page):
     favorites_page.set_base_url(base_url)
 
     favorites_page.open_search_page("граф%20монте%20кристо")
-    time.sleep(10)
     favorites_page.add_book_to_favorites()
     favorites_page.go_to_favorites()
     favorites_page.check_number_of_books(1)

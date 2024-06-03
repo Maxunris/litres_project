@@ -1,15 +1,15 @@
 from jsonschema import validate
 import json
 import allure
-from utils.api import LitresAPI
-from utils.cheking import Checking
+from litres_project.utils.api import LitresAPI
+from litres_project.utils.cheking import Checking
 from litres_project.schema.add_to_card_schema import add_to_card_schema
 """Успешный вход"""
 
 @allure.title("Add to card")
 @allure.tag('positive test')
-def test_add_to_card():
-    result_put = LitresAPI.put_add_to_card()
+def test_add_to_card(base_api_url):
+    result_put = LitresAPI.put_add_to_card(base_api_url)
     with allure.step('Status code=200'):
         Checking.check_status_code(result_put, 200)
     token = json.loads(result_put.text)
@@ -25,8 +25,8 @@ def test_add_to_card():
 
 @allure.title("Delete from card")
 @allure.tag('positive test')
-def test_delete_from_card():
-    result_put = LitresAPI.put_delete_from_card()
+def test_delete_from_card(base_api_url):
+    result_put = LitresAPI.put_delete_from_card(base_api_url)
     with allure.step('Status code=204'):
         Checking.check_status_code(result_put, 204)
 

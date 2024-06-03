@@ -8,29 +8,18 @@ load_dotenv()
 
 @allure.title("successful_login")
 @allure.tag('positive test')
-def test_successful_login(page: Page, base_url):
-    basket_page = BasketPage(page)
+def test_successful_login(page: Page):
+    basket_page = BasketPage()
+    base_url = os.getenv('BASE_URL')
 
-    with allure.step('Open book'):
-        basket_page.open_book_page(base_url, "aleksandr-duma/graf-monte-kristo-5957159/")
+    basket_page.set_page(page)
+    basket_page.set_base_url(base_url)
 
-    with allure.step('Checking the title of the book'):
-        basket_page.check_book_title("Граф Монте-Кристо")
-
-    with allure.step('Adding a book to the basket'):
-        basket_page.add_book_to_cart()
-
-    with allure.step('Closing the banner'):
-        basket_page.close_banner()
-
-    with allure.step('Go to the basket'):
-        basket_page.go_to_cart()
-
-    with allure.step('Check that the necessary book is in the basket'):
-        basket_page.check_book_in_cart("Граф Монте-Кристо")
-
-    with allure.step('Deleting a book from the basket'):
-        basket_page.delete_book_from_cart()
-
-    with allure.step('Check that the basket is empty'):
-        basket_page.check_cart_is_empty()
+    basket_page.open_book_page("aleksandr-duma/graf-monte-kristo-5957159/")
+    basket_page.check_book_title("Граф Монте-Кристо")
+    basket_page.add_book_to_cart()
+    basket_page.close_banner()
+    basket_page.go_to_cart()
+    basket_page.check_book_in_cart("Граф Монте-Кристо")
+    basket_page.delete_book_from_cart()
+    basket_page.check_cart_is_empty()

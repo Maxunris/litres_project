@@ -1,5 +1,6 @@
 import os
 import time
+from litres_project.pages.base_page import BasePage
 
 from dotenv import load_dotenv
 from playwright.sync_api import Page

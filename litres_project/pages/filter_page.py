@@ -1,17 +1,11 @@
 from playwright.sync_api import Page, expect
 import allure
 import re
+from litres_project.pages.base_page import BasePage
 
-class FilterPage:
-    def __init__(self, page: Page = None):
-        self.page = page
-        self.base_url = None
 
-    def set_page(self, page: Page):
-        self.page = page
+class FilterPage(BasePage):
 
-    def set_base_url(self, base_url):
-        self.base_url = base_url
 
     @allure.step('Open site')
     def open_popular_page(self):

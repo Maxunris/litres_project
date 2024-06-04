@@ -1,8 +1,8 @@
 from playwright.sync_api import Page, expect
+from litres_project.pages.base_page import BasePage
 
-class ProfilePage:
-    def __init__(self, page: Page):
-        self.page = page
+
+class ProfilePage(BasePage):
 
     def open_profile(self):
         self.page.get_by_test_id("header__profile-button").click()

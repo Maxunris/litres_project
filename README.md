@@ -17,10 +17,10 @@
 * ✅ Переход в раздел аудиокниги
 ### Локальный запуск автотестов
 ```bash
-pytest --browser chromium  - если нужно только в Chrome
-pytest --browser firefox   - если нужно только в Firefox
-pytest --browser webkit    - если нужно только в Safari
-pytest --browser webkit --browser firefox --browser chromium
+pytest --browser chromium  - запуск только в Chrome
+pytest --browser firefox   - запуск только в Firefox
+pytest --browser webkit    - запуск только в Safari
+pytest --browser webkit --browser firefox --browser chromium - запуск во всех трех браузерах 
 ```
 
 
